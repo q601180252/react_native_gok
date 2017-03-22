@@ -36,6 +36,10 @@ export default class Hero extends BaseComponent {
         this.fetchData();
     }
 
+    gotoInfo(rowData) {
+
+    }
+
     //从网络加载数据
     //http://game.gtimg.cn/images/yxzj/img201606/itemimg/
 
@@ -65,7 +69,7 @@ export default class Hero extends BaseComponent {
     //数据显示的样式
     renderRow(rowData, rowID) {
         return (
-            <TouchableHighlight style={styles.itemViewStyle} onPress={() => this.gotoInfo() }>
+            <TouchableHighlight style={styles.itemViewStyle} onPress={() => this.gotoInfo(rowData) }>
                 <View style={styles.itemViewStyle}>
                     <Image source={{uri:rowData.img}} style={styles.imgHeroStyle}/>
                     <Text style={styles.itemTitleStyle}>{rowData.cname}</Text>

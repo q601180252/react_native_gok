@@ -17,6 +17,18 @@ const styles = StyleSheet.create({
         alignItems: 'center'
 //上下居中
     },
+    modelContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        padding: 20,
+    },
+    innerContainer: {
+        borderColor:'#4f9bfd',
+        borderWidth: 1,
+        alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        padding:20,
+    },
     topLayout: {
         width: Dimensions.get("window").width,
         height: 100,
@@ -92,13 +104,15 @@ const styles = StyleSheet.create({
     itemTitleStyle: {
         marginTop: 8
     },
+    itemTextColor:{
+        color:'#ffffff'
+    },
     item: {
         flex: 1,
         height: 160,
         margin: 1
     },
     list: {
-        marginTop: 40,
         flex: 1
     },
 });
