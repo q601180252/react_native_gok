@@ -17,9 +17,10 @@ import API from '../../util/API';
 import BaseComponent from '../../view/base/basecomponent';
 import Grid from 'react-native-grid-component';
 import  styles from '../../view/equip/style'
+import  HeroInfo from './info'
 /**
  **/
-var totalList = new Array();
+
 export default class Hero extends BaseComponent {
     constructor(props) {
         super(props);
@@ -37,7 +38,7 @@ export default class Hero extends BaseComponent {
     }
 
     gotoInfo(rowData) {
-
+        super.startActivity("heroInfo",HeroInfo,rowData)
     }
 
     //从网络加载数据
@@ -45,6 +46,7 @@ export default class Hero extends BaseComponent {
 
 
     fetchData() {
+        var totalList = new Array();
         API.getAPI('hero').then(result => {
             HttpUtil.getJson(result).then((json) => {
                 if (json.errorCode == 0) {

@@ -10,15 +10,31 @@ export default class BaseComponent extends Component {
     }
 
     //跳转页面
-    startActivity(name,view) {
+    startActivity(name, view, value) {
         const {navigator} = this.props;
+        console.log(value);
+        console.log("startActivity");
         InteractionManager.runAfterInteractions(() => {
             navigator.push({
                 name: name,
                 component: view,
+                params: {
+                    json:value
+                },
             })
         });
     }
+
+    // startActivity(name, view) {
+    //     const {navigator} = this.props;
+    //     InteractionManager.runAfterInteractions(() => {
+    //         navigator.push({
+    //             name: name,
+    //             component: view,
+    //         })
+    //     });
+    // }
+
     //Android 返回键
     componentDidMount() {
         BackAndroid.addEventListener('hardwareBackPress', this.onBackAndroid);

@@ -5,6 +5,10 @@ var Dimensions = require('Dimensions')
 var {width} = Dimensions.get('window');
 var {height} = Dimensions.get('window');
 const styles = StyleSheet.create({
+    mainContainer: {
+        flex: 1,
+        backgroundColor: '#F5FCFF',
+    },
     header: {
         backgroundColor: '#4f9bfd',
         width: width,
@@ -12,7 +16,7 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        width: Dimensions.get("window").width,
+        width: width,
         backgroundColor: '#F5FCFF',
         alignItems: 'center'
 //上下居中
@@ -23,11 +27,11 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     innerContainer: {
-        borderColor:'#4f9bfd',
+        borderColor: '#4f9bfd',
         borderWidth: 1,
         alignItems: 'center',
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        padding:20,
+        padding: 20,
     },
     topLayout: {
         width: Dimensions.get("window").width,
@@ -104,8 +108,8 @@ const styles = StyleSheet.create({
     itemTitleStyle: {
         marginTop: 8
     },
-    itemTextColor:{
-        color:'#ffffff'
+    itemTextColor: {
+        color: '#ffffff'
     },
     item: {
         flex: 1,
@@ -115,5 +119,13 @@ const styles = StyleSheet.create({
     list: {
         flex: 1
     },
+    heroInfoTopLayout: {
+        width: width,
+        height: 300,
+    },
+    heroInfoCover: {
+        width: width,
+        height: 300,
+    }
 });
 export default  styles;

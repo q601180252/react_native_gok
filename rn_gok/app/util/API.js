@@ -1,5 +1,5 @@
 'use strict';
-let baseURL="http://gok.butterfly.mopaasapp.com/";
+let baseURL = "http://gok.butterfly.mopaasapp.com/";
 // let baseURL = 'http://192.168.1.124:8080/';
 let Json = {
     hero: {
@@ -11,6 +11,13 @@ let Json = {
         httpMethod: 'GET',
         params: {
             type: '',
+        }
+    },
+    heroInfo: {
+        url: baseURL + 'hero/info',
+        httpMethod: 'GET',
+        params: {
+            id: '',
         }
     },
 
