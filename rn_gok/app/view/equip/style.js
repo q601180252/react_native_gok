@@ -121,11 +121,26 @@ const styles = StyleSheet.create({
     },
     heroInfoTopLayout: {
         width: width,
-        height: 300,
+        height: 200,
     },
     heroInfoCover: {
         width: width,
-        height: 300,
-    }
+        height: 200,
+    },
+    titleText: {
+        fontSize: 16,
+        color: '#333'
+    },
+    contentText: {
+        marginTop: 8,
+        fontSize: 14,
+        color: '#333'
+    }, fullScreen: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
+    },
 });
 export default  styles;

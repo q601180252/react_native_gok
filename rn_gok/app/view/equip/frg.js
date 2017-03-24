@@ -9,17 +9,15 @@ import {
     InteractionManager,
     Platform,
     ActivityIndicator,
-    Dimensions,
+    Dimensions
 } from 'react-native';
 
 import HttpUtil from '../../util/HttpUtil';
 import API from '../../util/API';
 import BaseComponent from '../../view/base/basecomponent';
-import  styles from './style'
+import styles from './style'
 import Grid from 'react-native-grid-component';
 
-
-//foot：  0 隐藏  1  已加载完成   2  显示加载中
 export default class ListViewDemo extends BaseComponent {
     constructor(props) {
         super(props);
@@ -27,7 +25,10 @@ export default class ListViewDemo extends BaseComponent {
             dataSource: [],
             modalVisible: false,
             type: this.props.type,
-            currentItem: {img: '1', name: '1'},
+            currentItem: {
+                img: '1',
+                name: '1'
+            }
         };
     }
 
@@ -49,11 +50,8 @@ export default class ListViewDemo extends BaseComponent {
                     for (let i = 0; i < json.data.length; i++) {
                         totalList.push(json.data[i]);
                     }
-                    this.setState({
-                        dataSource: totalList,
-                    });
-                } else {
-                }
+                    this.setState({dataSource: totalList});
+                } else {}
             }, (json) => {
                 console.log(json);
             })
@@ -63,41 +61,45 @@ export default class ListViewDemo extends BaseComponent {
     }
 
     onRequestClose() {
-        this.setState({
-            modalVisible: false
-        })
+        this.setState({modalVisible: false})
     }
 
     render() {
         var modalBackgroundStyle = {
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)'
         };
 
         return (
             <View style={styles.container}>
-                <Modal
-                    visible={this.state.modalVisible}
-                    //是否透明默认是不透明 false
-                    transparent={true}
-                    onRequestClose={()=> this.onRequestClose()}>
+                <Modal visible={this.state.modalVisible} //是否透明默认是不透明 false
+                    transparent={true} onRequestClose={() => this.onRequestClose()}>
 
-                    <View style={[styles.modelContainer,modalBackgroundStyle]}>
-                        <TouchableOpacity style={styles.modelContainer} onPress={() => this.onRequestClose() }>
+                    <View style={[styles.modelContainer, modalBackgroundStyle]}>
+                        <TouchableOpacity style={styles.modelContainer} onPress={() => this.onRequestClose()}>
                             <View style={[styles.innerContainer]}>
-                                <View style={{flexDirection:'row'}}>
-                                    <Image source={{uri:this.state.currentItem.img}} style={{width:100,header:100}}/>
-                                    <View style={{marginLeft:10}}>
+                                <View style={{
+                                    flexDirection: 'row'
+                                }}>
+                                    <Image source={{
+                                        uri: this.state.currentItem.img
+                                    }} style={{
+                                        width: 100,
+                                        header: 100
+                                    }}/>
+                                    <View style={{
+                                        marginLeft: 10
+                                    }}>
                                         <Text style={styles.itemTextColor}>{this.state.currentItem.name}</Text>
-                                        <Text style={[styles.itemTitleStyle,styles.itemTextColor]}>
+                                        <Text style={[styles.itemTitleStyle, styles.itemTextColor]}>
                                             售价：{this.state.currentItem.price}
                                         </Text>
-                                        <Text style={[styles.itemTitleStyle,styles.itemTextColor]}>
+                                        <Text style={[styles.itemTitleStyle, styles.itemTextColor]}>
 
                                             总价：{this.state.currentItem.total_price}
                                         </Text>
                                     </View>
                                 </View>
-                                <Text style={[styles.itemTitleStyle,styles.itemTextColor]}>
+                                <Text style={[styles.itemTitleStyle, styles.itemTextColor]}>
 
                                     {this.state.currentItem.des1}
                                 </Text>
@@ -106,32 +108,28 @@ export default class ListViewDemo extends BaseComponent {
                     </View>
 
                 </Modal>
-                <Grid
-                    style={styles.list}
-                    renderItem={this.renderRow.bind(this)}
-                    data={this.state.dataSource}
-                    itemsPerRow={3}
-                />
+                <Grid style={styles.list} renderItem={this.renderRow.bind(this)} data={this.state.dataSource} itemsPerRow={3}/>
             </View>
         );
     }
 
     gotoInfo(item) {
         // super.startActivity("Info", Info);
-        this.setState({
-            modalVisible: true,
-            currentItem: item
-        })
+        this.setState({modalVisible: true, currentItem: item})
 
     }
 
     //数据显示的样式
     renderRow(rowData, rowID) {
         return (
-            <View style={{marginTop:10}}>
-                <TouchableOpacity style={styles.itemViewStyle} onPress={() => this.gotoInfo(rowData) }>
+            <View style={{
+                marginTop: 10
+            }}>
+                <TouchableOpacity style={styles.itemViewStyle} onPress={() => this.gotoInfo(rowData)}>
                     <View style={styles.itemViewStyle}>
-                        <Image source={{uri:rowData.img}} style={styles.itemIconStyle}/>
+                        <Image source={{
+                            uri: rowData.img
+                        }} style={styles.itemIconStyle}/>
                         <Text style={styles.itemTitleStyle}>{rowData.name}</Text>
                     </View>
                 </TouchableOpacity>

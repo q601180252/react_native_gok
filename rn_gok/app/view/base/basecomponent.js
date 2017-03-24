@@ -12,7 +12,6 @@ export default class BaseComponent extends Component {
     //跳转页面
     startActivity(name, view, value) {
         const {navigator} = this.props;
-        console.log(value);
         console.log("startActivity");
         InteractionManager.runAfterInteractions(() => {
             navigator.push({
